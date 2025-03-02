@@ -1,7 +1,7 @@
 import requests
 
 
-LOCATIONS = ["Лондон", "Шереметьево", "Череповец"]
+LOCATION_LIST = ["Лондон", "Шереметьево", "Череповец"]
 
 
 def get_weather(location_list):
@@ -16,7 +16,7 @@ def get_weather(location_list):
     return weather_info
 
 def main():
-    weather_data = get_weather(LOCATIONS)
+    weather_data = get_weather(LOCATION_LIST)
     for weather in weather_data:
         print(weather)
 
