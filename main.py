@@ -9,9 +9,10 @@ def get_weather(location):
     response.raise_for_status()
     return response.text
 
+
 def main():
-    LOCATION_LIST = ["Лондон", "Шереметьево", "Череповец"]
-    for location in LOCATION_LIST:
+    locations = ["Лондон", "Шереметьево", "Череповец"]
+    for location in locations:
         weather = get_weather(location)
         print(weather)
 
