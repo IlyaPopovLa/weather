@@ -1,23 +1,18 @@
 import requests
 
 
-LOCATION_LIST = ["Лондон", "Шереметьево", "Череповец"]
-
-
-def get_weather(location_list):
-    weather_info = []
+def get_weather(location):
     lang = 'ru'
-    for location in location_list:
-        url = f"https://wttr.in/{location}"
-        params = {'nTqu': '', 'lang': lang}
-        response = requests.get(url, params=params)
-        response.raise_for_status()
-        weather_info.append(response.text)
-    return weather_info
+    url = f"https://wttr.in/{location}"
+    params = {'nTqu': '', 'lang': lang}
+    response = requests.get(url, params=params)
+    response.raise_for_status()
+    return response.text
 
 def main():
-    weather_data = get_weather(LOCATION_LIST)
-    for weather in weather_data:
+    LOCATION_LIST = ["Лондон", "Шереметьево", "Череповец"]
+    for location in LOCATION_LIST:
+        weather = get_weather(location)
         print(weather)
 
 
